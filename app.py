@@ -158,14 +158,14 @@ if not df.empty:
         )
         st.plotly_chart(fig_trend, use_container_width=True)
         
-    with tab3:
+   with tab3:
         st.markdown("#### Academic Performance vs. Stress Level")
+        # Removed color_continuous_scale as it is not supported for px.box
         fig_box = px.box(
             df, x="stress_level", y="academic_performance", 
-            color="stress_level", color_continuous_scale="Reds"
+            color="stress_level" 
         )
         fig_box.update_layout(xaxis_title="Reported Stress Level (1-10)", yaxis_title="Academic Performance")
         st.plotly_chart(fig_box, use_container_width=True)
-
 else:
     st.warning("Please upload the dataset to view analytics.")
